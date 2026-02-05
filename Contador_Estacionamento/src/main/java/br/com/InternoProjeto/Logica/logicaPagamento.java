@@ -40,15 +40,12 @@ public class logicaPagamento implements ObserverCB {
 
 	private void selecaoPagamento(tipoPagamento TPpage) throws WriterException, IOException {
 		chamada = true;
-		System.out.println("Entrou aqui");
 		switch (TPpage) {
 		case CREDITO:
 		case DEBITO:
-			System.out.println("Passou aqui");
 			verificarCodigo();
 			break;
 		case PIX:
-			System.out.println("Passando no pix");
 			gerarQRCode();
 			break;
 		default:
@@ -63,7 +60,6 @@ public class logicaPagamento implements ObserverCB {
 		codigoCerto = false;
 		textoCode = null;
 		chamada = true;
-		System.out.println("Aqui entrou tbm");
 		int cont = 0;
 		int tent = 4;
 
@@ -71,7 +67,6 @@ public class logicaPagamento implements ObserverCB {
 		while (!codigoCerto) {
 			try {
 				if (display.valorCadastro.containsKey(textoCode)) {
-					System.out.println("Encontrou codigo");
 					if (valorTotal == 0) {
 						System.out.println("Não existe valor para ser pago");
 					} else {
@@ -125,7 +120,7 @@ public class logicaPagamento implements ObserverCB {
 				}
 			}
 			ImageIO.write(image, "PNG", new File("qrcode.png"));
-			System.out.println("✅ QRCode gerado: qrcode.png");// QRCode para fins de projeto
+			System.out.println("✅ QRCode gerado: qrcode.png");
 		}
 	}
 

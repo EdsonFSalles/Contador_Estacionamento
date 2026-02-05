@@ -60,7 +60,7 @@ public class displayLogica {
 				try {
 					Thread.sleep(1000);
 					timer++;
-					System.out.println("Cont = " + timer);// Observar comportamento do timer
+					System.out.println("Cont = " + timer);
 					tempContador.put(codigo, timer);
 				} catch (InterruptedException e) {
 					Thread.currentThread().interrupt();
@@ -92,6 +92,7 @@ public class displayLogica {
 		if (codigo == null || codigo.trim().isEmpty()) {
 			return;
 		}
+		
 		codigo = codigo.trim();
 		boolean validou = false;
 		while (!validou) {
